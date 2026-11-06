@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Servidor";
 
     // =================================================================
-    //  INTERFAZ (paso 2 de las diapositivas)
+    //  INTERFAZ
     // =================================================================
     TextView BT_Name_TextView;               // nombre del Bluetooth de este móvil
     TextView BT_MAC_TextView;                // MAC del Bluetooth de este móvil
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // ----- 1. Enlazar las variables con el XML (paso 3) -----
+        // ----- 1. Enlazar las variables con el XML  -----
         BT_Name_TextView            = findViewById(R.id.BT_Name_TextView);
         BT_MAC_TextView             = findViewById(R.id.BT_MAC_TextView);
         acceptConnectionButton      = findViewById(R.id.acceptConnectionButton);
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         sendTextEditText            = findViewById(R.id.sendTextEditText);
         sendTextButton              = findViewById(R.id.sendTextButton);
 
-        // ----- 2. Estado inicial (paso 8) -----
+        // ----- 2. Estado inicial -----
         estadoNoConectado();
 
         // ----- 3. Preparar el lanzador para encender el Bluetooth -----
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        // ----- Handler: el "buzón" donde el hilo deja sus mensajes (paso 15) -----
+        // ----- Handler: el "buzón" donde el hilo deja sus mensajes -----
         // Looper.getMainLooper() → handleMessage se ejecuta en el hilo PRINCIPAL,
         // el único que puede tocar la interfaz
         handlerNetworkExecutorResult = new Handler(Looper.getMainLooper()) {
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         closeConnectionButton.setOnClickListener(v -> closeConnection());
         sendTextButton.setOnClickListener(v -> sendText());
 
-        // ----- 4. Obtener el Bluetooth del móvil (paso 5) -----
+        // ----- 4. Obtener el Bluetooth del móvil -----
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
             Toast.makeText(this, "Device does not support Bluetooth", Toast.LENGTH_SHORT).show();
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // ----- 5. Comprobar permisos y si está encendido (paso 6) -----
+        // ----- 5. Comprobar permisos y si está encendido -----
         comprobarBluetooth();
     }
 
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     // =================================================================
 
     /*
-     * ACCEPT (pasos 18 y 19): crea el hilo del servidor y lo arranca.
+     * ACCEPT: crea el hilo del servidor y lo arranca.
      * Un Thread solo se puede arrancar UNA vez, así que se crea uno nuevo en cada ACCEPT.
      */
     private void acceptConnection() {
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-     * CLOSE (paso 20): cierra los sockets (desbloquea accept/read) y el hilo termina.
+     * CLOSE: cierra los sockets (desbloquea accept/read) y el hilo termina.
      */
     private void closeConnection() {
         if (btServerManager != null) {
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // =================================================================
-    //  NOMBRE Y MAC DEL SERVIDOR (paso 9)
+    //  NOMBRE Y MAC DEL SERVIDOR
     // =================================================================
 
     @SuppressLint({"MissingPermission", "HardwareIds"})

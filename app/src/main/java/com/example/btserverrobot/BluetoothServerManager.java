@@ -43,7 +43,7 @@ public class BluetoothServerManager extends Thread {
     private volatile boolean cerrar = false;
 
     // ============================================================
-    //  CONSTRUCTOR (paso 13). Se llama IGUAL que la clase
+    //  CONSTRUCTOR. Se llama IGUAL que la clase
     // ============================================================
     @SuppressLint("MissingPermission")
     public BluetoothServerManager(BluetoothAdapter bluetoothAdapter, Handler handler) {
@@ -57,7 +57,7 @@ public class BluetoothServerManager extends Thread {
     }
 
     // ============================================================
-    //  MENSAJES A LA PANTALLA (paso 14)
+    //  MENSAJES A LA PANTALLA
     //  Este hilo NO puede tocar la interfaz: envía un Message al Handler
     // ============================================================
     private void showDisplayMessage(String texto) {
@@ -75,7 +75,7 @@ public class BluetoothServerManager extends Thread {
     }
 
     // ============================================================
-    //  RUN (paso 16): lo que hace el hilo al arrancar con start()
+    //  RUN: lo que hace el hilo al arrancar con start()
     // ============================================================
     @SuppressLint("MissingPermission")
     @Override
@@ -106,7 +106,7 @@ public class BluetoothServerManager extends Thread {
     }
 
     // ============================================================
-    //  ATENDER AL CLIENTE CONECTADO (paso 17, corregido)
+    //  ATENDER AL CLIENTE CONECTADO
     // ============================================================
     private void manageConnectedSocket(BluetoothSocket socket) {
         try {
